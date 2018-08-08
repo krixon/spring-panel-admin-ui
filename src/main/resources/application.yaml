@@ -1,0 +1,15 @@
+server:
+  port: 10000
+
+spring:
+  application:
+    name: panel-admin-ui
+  profiles:
+    active: default
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /meta
