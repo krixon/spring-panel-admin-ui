@@ -1,9 +1,14 @@
 <!doctype html>
-<html th:replace="~{base :: layout(~{::title}, ~{::body})}" lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
 <head>
     <title>Panel UI</title>
 </head>
 <body>
-<p class="lead" th:text="#{welcome}">Welcome to the Panel UI</p>
+<div layout:fragment="content">
+    <p class="lead" th:text="#{welcome}">Welcome to the Panel UI</p>
+</div>
 </body>
 </html>
