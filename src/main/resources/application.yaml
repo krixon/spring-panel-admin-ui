@@ -7,6 +7,18 @@ spring:
   profiles:
     active: default
 
+security:
+  oauth2:
+    client:
+      client-id: panel-admin-ui
+      client-secret: panel-admin-ui-secret
+      access-token-uri: http://localhost:9000/services/oauth/token
+      user-authorization-uri: http://localhost:9000/services/oauth/authorize
+      client-authentication-scheme: form
+    resource:
+      user-info-uri: http://localhost:9000/services/user
+      prefer-token-info: false
+
 management:
   endpoints:
     web:

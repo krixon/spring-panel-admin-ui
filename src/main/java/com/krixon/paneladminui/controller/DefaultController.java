@@ -1,13 +1,14 @@
-package com.krixon.paneladminui;
+package com.krixon.paneladminui.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class DefaultController {
-
+public class DefaultController
+{
     @RequestMapping("/")
-    public String home() {
+    public String home()
+    {
         return "home";
     }
 }
