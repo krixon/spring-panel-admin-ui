@@ -16,17 +16,9 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>1</td>
-            <td>Foo Panel</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Bar Panel</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Baz Panel</td>
+        <tr th:each="panel:${panels}">
+            <td th:text="${panel.id}">1</td>
+            <td th:text="${panel.name}">Foo Panel</td>
         </tr>
         </tbody>
     </table>
