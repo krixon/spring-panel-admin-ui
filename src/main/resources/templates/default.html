@@ -1,5 +1,9 @@
 <!doctype html>
-<html lang="en" class="layout-default" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en"
+      class="layout-default"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -8,9 +12,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
           integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+          crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg mb-3 navbar-dark bg-dark">
     <a class="navbar-brand" href="#" th:text="#{title}">Panel UI</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +58,24 @@
 <main class="container-fluid">
     <div class="row">
         <aside class="col-md-3" layout:fragment="sidebar-left">
-            Left sidebar content goes here.
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">
+                        <i class="fas fa-user text-primary"></i> <span sec:authentication="name">Name</span>
+                        <br>
+                        <small class="text-muted"><span sec:authentication="authorities">[ROLE_USER, ROLE_ADMIN]</span></small>
+                    </p>
+                    <p class="card-text" sec:authorize="isAuthenticated()">
+                        <i class="fas fa-check text-success"></i> Authenticated
+                    </p>
+                    <p class="card-text" sec:authorize="hasRole('USER')">
+                        <i class="fas fa-check text-success"></i> Regular User
+                    </p>
+                    <p class="card-text" sec:authorize="hasRole('ADMIN')">
+                        <i class="fas fa-check text-success"></i> Administrator
+                    </p>
+                </div>
+            </div>
         </aside>
         <div class="col-md-6" layout:fragment="content">
             Main page content goes here.
