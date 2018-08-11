@@ -1,9 +1,20 @@
+instance:
+  id: 1
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    # The ID of this particular instance of the service.
+    instance-id: ${spring.application.name}:${instance.id}
+
 server:
   port: 10000
 
 spring:
-  application:
-    name: panel-admin-ui
   profiles:
     active: default
   sleuth:
