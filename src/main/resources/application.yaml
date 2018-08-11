@@ -6,6 +6,11 @@ spring:
     name: panel-admin-ui
   profiles:
     active: default
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://localhost:9411
 
 security:
   oauth2:
@@ -24,4 +29,3 @@ management:
     web:
       exposure:
         include: "*"
-      base-path: /meta

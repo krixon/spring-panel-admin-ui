@@ -13,8 +13,8 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.util.Locale;
 
-@SpringBootApplication
 @Configuration
+@SpringBootApplication
 public class PanelAdminUiApplication implements WebMvcConfigurer {
 
     public static void main(String[] args) {
